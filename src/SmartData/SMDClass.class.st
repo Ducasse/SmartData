@@ -23,3 +23,9 @@ SMDClass >> initialize [
 	super initialize.
 	parts := OrderedCollection new
 ]
+
+{ #category : #'accessing parts' }
+SMDClass >> partNamed: anId [ 
+	
+	^ parts at: anId ifAbsent: [ self error: 'No part named ', anId printString ]
+]

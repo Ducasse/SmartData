@@ -17,6 +17,8 @@ SmartDataBuilding >> testAddAPartFromAnotherClassKeepOrigin [
 	cTarget addPart: (cSource partNamed: pSource id).
 	self assert: (cSource hasPart: pSource).
 	
+	"question who is responsible to define what is an origin?"
+	
 	self assert: (cSource partNamed: pSource id) origin equals: cSource
 
 ]
