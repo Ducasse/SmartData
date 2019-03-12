@@ -1,11 +1,11 @@
 Class {
-	#name : #SmartDataBuilding,
+	#name : #SmartDataBuildingTest,
 	#superclass : #TestCase,
 	#category : #SmartData
 }
 
 { #category : #tests }
-SmartDataBuilding >> testAddAPartFromAnotherClassKeepOrigin [
+SmartDataBuildingTest >> testAddAPartFromAnotherClassKeepOrigin [
 
 	| cSource pSource cTarget |
 	cSource := SMDClass new. 
@@ -24,7 +24,7 @@ SmartDataBuilding >> testAddAPartFromAnotherClassKeepOrigin [
 ]
 
 { #category : #tests }
-SmartDataBuilding >> testCreateAClassAndAddAPart [
+SmartDataBuildingTest >> testCreateAClassAndAddAPart [
 
 	| c f |
 	c := SMDClass new. 
