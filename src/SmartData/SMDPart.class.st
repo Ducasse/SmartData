@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'id',
-		'parts'
+		'parts',
+		'origin'
 	],
 	#classInstVars : [
 		'idCounter'
@@ -16,6 +17,14 @@ SMDPart class >> initialize [
 	"self initialize"
 	
 	self resetCounter
+]
+
+{ #category : #'instance creation' }
+SMDPart class >> new [
+
+	^ super new 
+		setId: self newId;
+		yourself
 ]
 
 { #category : #'instance creation' }
@@ -37,16 +46,36 @@ SMDPart >> addPart: aPart [
 	parts at: aPart id put: aPart
 ]
 
+{ #category : #testing }
+SMDPart >> hasPart: aSMDPart [
+	^ parts includes: aSMDPart
+]
+
 { #category : #accessing }
 SMDPart >> id [
 	"an id is a unique identifier of the part."
 	
-	^ id ifNil: [ id := self class newId ]
+	^ id 
 ]
 
-{ #category : #adding }
+{ #category : #initialization }
 SMDPart >> initialize [
 
 	super initialize. 
 	parts := Dictionary new
+]
+
+{ #category : #accessing }
+SMDPart >> origin [
+	^ origin
+]
+
+{ #category : #private }
+SMDPart >> setId: aString [ 
+	id := aString
+]
+
+{ #category : #private }
+SMDPart >> setOrigin: anObject [ 
+	origin := anObject
 ]
