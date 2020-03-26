@@ -23,4 +23,15 @@ a Patient has a record in a Hospital Service
   self assert: address address equals:  '26 av marechal foch'.
  
 
+Data from one patient can be corrupted and it should not corrupt the full report
+- create patient 1
+- create patient 2
+- create report
+- patient1 is marked as bad
+- query subparts of report and identify the parts that are touched.
+
+
+
+
+
 
