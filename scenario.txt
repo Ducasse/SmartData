@@ -1,0 +1,26 @@
+
+a Patient has a record in a Hospital Service
+
+
+  service1 := Service new. "source"
+        
+  patient := service1 createPatientId: #123.
+  address := service1 createAddress: '25 av marechal foch'.
+  service1 attach: address to: patient as: #address.
+  
+  self assert: patient origin equals: service1.
+  self assert: address origin equals: service1.
+  
+  self assert: address address equals:  '25 av marechal foch'.
+  
+  service1 modify: #address of: patient as: '26 av marechal foch'.
+  
+  self assert: address address equals:  '26 av marechal foch'.
+  
+  service2 := Service new. 
+  service2 modify: #address of: patient as: '255 av marechal foch'.
+  
+  self assert: address address equals:  '26 av marechal foch'.
+ 
+
+
